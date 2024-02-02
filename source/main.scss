@@ -1,0 +1,111 @@
+// Importando as variáveis
+@use 'config/variaveis.scss';
+
+// Estilo do corpo da página
+body {
+    background-color: variaveis.$corFundoCorpo;
+}
+
+// Removendo estilo padrão da lista
+li {
+    list-style: none;
+}
+
+// Estilização do container principal
+.container {
+    max-width: variaveis.$larguraMaximaDesktop;
+    width: 100%;
+    margin: 0 auto;
+
+    // Ajuste para tablets
+    @media screen and (max-width: 1023px) {
+        max-width: variaveis.$larguraMaximaTablet;
+    }
+}
+
+// Estilização do cabeçalho
+header {
+    background-color: variaveis.$corFundoCabecalho;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    // Estilização do container dentro do cabeçalho
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+}
+
+// Estilização do menu
+.menu {
+    display: flex;
+
+    li {
+        font-weight: bold;
+        margin-left: 24px;
+
+        a {
+            color: variaveis.$corTextoLinks;
+            text-decoration: none;
+        }
+    }
+}
+
+// Estilização das seções
+section {
+    padding: 56px 0;
+}
+
+// Configuração da exibição dos produtos
+.products {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: variaveis.$espacamentoColunaDesktop;
+    row-gap: variaveis.$espacamentoLinha;
+    width: 100%;
+
+    // Ajustes para a exibição em tablets
+    @media screen and (max-width: 1023px) {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: variaveis.$espacamentoColunaTablet;
+    }
+
+    // Ajustes para a exibição em celulares
+    @media screen and (max-width: 767px) {
+        display: block;
+    }
+
+    // Estilização dos itens dos produtos
+    .product-item {
+        img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        // Ajuste de margem em celulares
+        @media screen and (max-width: 767px) {
+            margin-bottom: 32px;
+        }
+    }
+}
+
+// Estilização do botão do produto
+.product-button {
+    display: block;
+    background-color: variaveis.$corFundoBotao;
+    color: variaveis.$corTextoLinks;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin-top: 8px;
+    text-decoration: none;
+
+    // Efeito ao passar o mouse
+    &:hover {
+        background-color: variaveis.$corFundoBotaoHover;
+    }
+}
